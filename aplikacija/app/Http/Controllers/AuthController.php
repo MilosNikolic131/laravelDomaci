@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Podrska_prvog_nivoa;
-use App\Models\Zalbe;
 use App\Models\Podrska_drugog_nivoa;
 use Illuminate\Support\Facades\Hash;
 
@@ -64,12 +63,7 @@ class AuthController extends Controller
             'korisnik' => $korisnik,
             'token' => $token
         ];
-        // Podrska_Prvog_Nivoa::destroy($polja['id']);
-        $flag = Zalbe::where('id_prvog_nivoa', 'like', $polja['id'])->get();
-        if (is_null($flag)) {
-            Podrska_Prvog_Nivoa::destroy($polja['id']);
-        }
-
+        Podrska_Prvog_Nivoa::destroy($polja['id']);
 
         return response($response, 201);
     }

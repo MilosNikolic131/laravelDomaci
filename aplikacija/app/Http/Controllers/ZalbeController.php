@@ -8,7 +8,7 @@ use App\Http\Resources\ZalbeResource;
 
 class ZalbeController extends Controller
 {
-   
+
     public function index()
     {
         $zalbe = Zalbe::all();
@@ -17,7 +17,7 @@ class ZalbeController extends Controller
 
     public function store(Request $request)
     {
-       return Zalbe::create($request->all());
+        return Zalbe::create($request->all());
     }
 
     // public function show($id)
@@ -44,6 +44,6 @@ class ZalbeController extends Controller
 
     public function search($tip_problema)
     {
-        return Zalbe::where('tip_problema','like','%'.$tip_problema.'%')->get();
+        return Zalbe::where('tip_problema', 'like', '%' . $tip_problema . '%')->get();
     }
 }
